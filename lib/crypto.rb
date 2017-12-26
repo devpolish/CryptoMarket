@@ -1,11 +1,18 @@
-require 'rest-client'
+require "#{Dir.pwd}/lib/raw_request.rb"
 class CryptoExchange
-	@@url = 'https://api.coinmarketcap.com/v1/ticker/'
-	def initialize
-		
-	end
+  extend RawRequest
+  @@url = 'https://api.coinmarketcap.com/v1/ticker/'
 
-	def self.get_all_tickets(limit: nil)
-		RestClient.get("#{@@url}?limit=#{limit}")
-	end
+  def initialize
+  end
+
+  def self.get_all_tickets(limit: nil)
+    get_request("#{@@url}?limit=#{limit}")
+  end
+
+  def find_by_symbol(symbol)
+  end
 end
+
+
+puts CryptoExchange.get_all_tickets
