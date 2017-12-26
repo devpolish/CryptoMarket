@@ -10,9 +10,7 @@ class CryptoExchange
     get_request("#{@@url}?limit=#{limit}")
   end
 
-  def find_by_symbol(symbol)
+  def self.find_by_name(name)
+    get_request("#{@@url}/#{name}/")
   end
 end
-
-
-puts CryptoExchange.get_all_tickets
