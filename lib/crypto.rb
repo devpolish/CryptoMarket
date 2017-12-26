@@ -21,10 +21,7 @@ class CryptoExchange
     File.open("#{Dir.pwd}/files/data.json", "w") { |file| file.write(data); file.close() }
     puts "File has been saved".green
     rescue => exception
-      puts "Error to save".red
-      puts exception.red
+    puts "Error to save".red
+    puts exception.red
   end
 end
-
-
-puts CryptoExchange.get_all_and_save
